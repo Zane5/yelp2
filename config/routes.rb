@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   #site root
   root 'business#index'
-  get '/home', to: 'revies#index'
+  get '/home', to: 'reviews#index'
 
   #Session
   get '/login', to: 'sessions#new'
@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :businesses, only: [:index, :new, :create, :show]
 
   #Users
-  get '/register', to: 'users#new'
+  get 'register', to: 'users#new'
+  get 'sign_in', to: 'sessions#new'
+  post 'sign_in', to: 'sessions#create'
+  get 'sign_out', to: 'sessions#destroy'
   resources :users, only: [:create, :show]
 end
