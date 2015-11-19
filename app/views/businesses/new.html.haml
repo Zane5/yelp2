@@ -1,0 +1,17 @@
+%section.admin_add_video
+  .container
+    .row
+      .com-md-10.col-md-offset-1
+        = bootstrap_form_for @business, layout: :horizontal, control_col: "col-sm-6" do |f|
+          %h3 Add a New Business
+          %br
+          %fieldset
+            = f.text_field :name, label: "Business Name"
+            = f.text_area :description
+            = f.select :picture_url, [["Tokyo","/images/japanese-food-166-236.png"],
+                                      ["Beijing","/images/chinese-food-166-236.png"],
+                                      ["PizzaHut","/images/pizza-166.236.png"]],
+                       { label: "Choose a picture:" }, { class: "selectpicker" }
+            = f.collection_radio_buttons :category_id, Category.all, :id, :name do |cb| 
+              cb.label(class: "checkbox inline") { cb.check_box(class: "checkbox") + cb.text }
+            = f.submit "Add the Business", class: "btn btn-default"

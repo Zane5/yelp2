@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'ui(/:action)', controller: 'ui'
 
   #site root
-  root 'reviews#index'
+  root 'business#index'
   get '/home', to: 'revies#index'
 
   #Session
@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   #Reviews
   resources :reviews, only: [:index, :create]
+
+  #Categories
+  resources :categories, only: [:show]
 
   #Businesses
   resources :businesses, only: [:index, :new, :create, :show]

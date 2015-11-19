@@ -1,0 +1,11 @@
+%article.video_category
+  %header
+    - @categories.each do |category|
+      %h2= link_to category.name, category_path(category)
+      %br
+      .video.row
+        - category.recent_businesses.each do |business|
+          .video.col-sm-2
+            =link_to business do
+              %h3= link_to business.name, business_path(business)
+              =image_tag business.picture_url
