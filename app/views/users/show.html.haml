@@ -7,7 +7,7 @@
         %url
           - @reviews.each do |review|
             %article.review
-              %li.row
+              %li.row.list-group-item
                 .col-sm-2
                   %p
                     = link_to "\"#{review.business.name}\"", business_path(review.business)
