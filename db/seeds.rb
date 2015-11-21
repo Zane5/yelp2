@@ -26,5 +26,13 @@ tim = User.create(username: "Tim",
                  email: "Tim@example.com"
                  )
 
+mac = User.create(username: "Mac",
+                 password: "password",
+                 email: "mac@example.com"
+                 )
+
+
 Review.create(user: tim, business: pizzahut, description: "delicious pizza")
 Review.create(user: tim, business: heycookie, description: "fantastic cookie")
+Review.create(user: mac, business: pizzahut, description: "delicious hut ~~~~~~~!!!")
+Review.create(user: mac, business: heycookie, description: "fantastic cookies ~~~~~~~~~~~!!!")

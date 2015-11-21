@@ -69,7 +69,11 @@ describe ReviewsController do
     end
 
     context "with unauthenticated users" do
-      it "redirects to the sign in page"
+      it "redirects to the sign in page" do
+        business = Fabricate(:business)
+        post :create, review: Fabricate.attributes_for(:review), business_id: business.id
+        expect(response).to redirect_to sign_in_path
+      end
     end
   end
 end

@@ -47,4 +47,22 @@ describe UsersController do
       end
     end
   end
+
+  describe "GET show" do
+    it "show the current_user profile" do
+      alice = Fabricate(:user)
+      session[:user_id] = alice.id
+      get :show, id: alice.id
+      expect(assigns(:alice)).to eq(@alice)
+    end
+
+    it "show another user profile " do
+      alice = Fabricate(:user)
+      session[:user_id] = alice.id
+      tom = Fabricate(:user)
+      get :show, id: tom.id
+      expect(assigns(:tom)).to eq(@tom)
+    end
+
+  end
 end
