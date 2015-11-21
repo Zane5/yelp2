@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.2.3'
 
 gem 'bootstrap-sass'
 gem 'coffee-rails'
@@ -15,7 +15,7 @@ gem 'fabrication'
 gem 'faker'
 
 group :development do
-  gem 'thin'
+#  gem 'thin'
   gem "better_errors"
   gem "binding_of_caller"
 end
