@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
 
   #Businesses
-  resources :businesses, only: [:index, :new, :create, :show]
+  resources :businesses, only: [:index, :new, :create, :show] do
+    resources :reviews, only: [:index, :create]
+  end
+
 
   #Users
   get 'register', to: 'users#new'

@@ -2,7 +2,7 @@
   .container
     .row
       .video_large_cover.col-sm-7.col-sm-offset-1
-        %img(src=#{@business.picture_url})
+        =image_tag @business.picture_url
       .video_info.col-sm-3
         %header
           %h3= @business.name
@@ -11,14 +11,14 @@
 %section.reviews.container
   .row
     .col-sm-7.col-sm-offset-1
-      = bootstrap_form_for @review do |f|
+      = bootstrap_form_for [@business, Review.new] do |f|
         = f.text_area :description, label: "Write Review", rows: 6
         = f.hidden_field :business, value: @business.id, name:"review[business_id]"
         = f.submit "Submit", class: "btn btn-default"
   .row
     .col-sm-10.col-sm-offset-1
       %header
-        %h3= "User Review (#{@review.count})"
+        %h3= "User Review (#{@reviews.count})"
       %ul
         - @reviews.each do |review|
           %article.review
