@@ -1,8 +1,8 @@
-%article.video_category
+%article.business_category.container
   %header
     - @categories.each do |category|
-      %h2= link_to category.name, category_path(category)
       %br
+      %h2 #{category.name}
       .video.row
         - category.recent_businesses.each do |business|
           .video.col-sm-2

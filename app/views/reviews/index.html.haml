@@ -8,6 +8,6 @@
             %article.review
               %li.row
                 .col-sm-2
-                  %h2= review.business.name
+                  %h2= link_to review.business.name, business_path(review.business.id)
                 .col-sm-8
                   %p= review.description

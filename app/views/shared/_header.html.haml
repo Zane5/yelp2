@@ -4,8 +4,7 @@
   - if current_user
     %ul.col-md-4.clearfix
       %li= link_to "Business", businesses_path
-      %li= link_to "My Review"
-      %li= link_to "People"
+      %li= link_to "My Review", user_path(current_user.id)
     = form_tag class: "span5 for-search", method: 'get' do
       %input.search-query(name="search_term" type="text" placeholder="Search for Bussiness  here")
       %button.btn.btn-default(type="submit") Search
@@ -16,6 +15,10 @@
             Welcome, #{current_user.username}
             %b.caret
           %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
-            %li
-              %a(href="#") Account
-              = link_to "Sign Out" 
+            %li= link_to "My Profile", user_path(current_user.id) 
+            %li.divider(role="separator")
+            %li= link_to "Sign Out", sign_out_path 
+  - else
+    %ul.col-md-4.clearfix.pull-right
+      %li= link_to "Sign in", sign_in_path
+      %li= link_to "Reginster", register_path

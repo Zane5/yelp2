@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'ui(/:action)', controller: 'ui'
 
   #site root
-  root 'business#index'
+  root 'businesses#index'
   get '/home', to: 'reviews#index'
 
   #Session
