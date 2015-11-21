@@ -20,3 +20,11 @@ heycookie = Business.create(name: "Hey, Cookie",
                            picture_url: "/images/japanese-food-166-236.png",
                            category: foods
                            )
+
+tim = User.create(username: "Tim",
+                 password: "password",
+                 email: "Tim@example.com"
+                 )
+
+Review.create(user: tim, business: pizzahut, description: "delicious pizza")
+Review.create(user: tim, business: heycookie, description: "fantastic cookie")

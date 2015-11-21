@@ -3,4 +3,5 @@ class Review < ActiveRecord::Base
   belongs_to :business
 
   validates_presence_of :description
+
 end
