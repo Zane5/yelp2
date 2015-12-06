@@ -16,7 +16,6 @@ class BusinessesController < ApplicationController
   end
 
   def index
-    @businesses = Business.all
     @categories = Category.all
   end
 
