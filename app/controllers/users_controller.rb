@@ -13,8 +13,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @reviews = @user.reviews
+    if current_user.id == params[:id].to_i
+      @user = current_user
+      @reviews = current_user.reviews
+    else
+      @user = User.find(params[:id])
+      @reviews = @user.reviews
+    end
   end
 
   private
