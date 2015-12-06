@@ -10,7 +10,7 @@ class BusinessesController < ApplicationController
       flash[:success] = "New Business listed!"
       redirect_to businesses_path
     else
-      flash[:danger] = "There were something missing."
+      flash.now[:danger] = "There were something missing."
       render :new
     end
   end
